@@ -1,0 +1,29 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://archive.ubuntu.com/ubuntu/
+Include: bash
+
+%labels
+  Author Qi Li
+  Version v0.0.1
+
+
+%post
+
+  apt-get clean
+  apt-get update
+  apt-get install -y software-properties-common
+
+  ##python-3.6
+  add-apt-repository ppa:deadsnakes/ppa
+  apt-get update
+  apt-get install -y python3.6
+  apt-get install -y python3.6-dev python3.6-venv
+  
+  apt-get install -y wget
+  wget https://bootstrap.pypa.io/get-pip.py
+  python3.6 get-pip.py
+
+
+  pip install -UI nibabel numpy scikit-image
+

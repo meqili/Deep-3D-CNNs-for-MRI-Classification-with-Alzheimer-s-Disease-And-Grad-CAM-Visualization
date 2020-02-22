@@ -1,0 +1,14 @@
+[global]
+device=gpu
+floatX=float32
+allow_gc=True
+optimizer_including = cudnn
+
+
+[scan]
+allow_gc=True
+allow_output_prealloc=False
+
+
+[cuda]
+root=/usr/local/cuda-8.0

@@ -1,0 +1,28 @@
+
+ classification AD vs Normal
+AD_vs_Normalcv_fold adam, lr=0.000027final results are:
+ tr_loss: 0.0354739561651
+ val_loss: 0.224725525118
+ val_acc; 0.925
+ val_roc_auc: 0.965097402597
+results has been saved in files:
+./results_resnet/Exp_CV__AD_vs_Normal.txt
+./results_resnet/Exp_CV__AD_vs_Normal.png
+
+ ___________________ 
+
+
+
+ classification AD vs Normal
+AD_vs_Normalcv_fold adam, lr=0.000027final results are:
+ tr_loss: 0.0274708130896
+ val_loss: 0.117713535428
+ val_acc; 0.95
+ val_roc_auc: 0.994625878462
+results has been saved in files:
+./results_resnet/Exp_CV__AD_vs_Normal.txt
+./results_resnet/Exp_CV__AD_vs_Normal.png
+
+ ___________________ 
+
+

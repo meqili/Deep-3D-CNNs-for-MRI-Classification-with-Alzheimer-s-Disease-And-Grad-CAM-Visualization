@@ -1,0 +1,79 @@
+Bootstrap: docker
+From: nvidia/cuda:8.0-cudnn5-devel
+%files
+test_scripts /test_scripts
+.theanorc /root/.theanorc
+.theanorc /.theanorc
+jupyter /jupyter
+
+%labels
+  Author Qi Li
+
+%post
+
+
+#apt-get clean && apt-get update
+
+apt-get clean
+
+#apt-get -y install software-properties-common python-software-properties
+#add-apt-repository ppa:deadsnakes/ppa
+#apt-get install -y build-essential git libjpeg-dev
+
+##python-3.6
+#add-apt-repository ppa:jonathonf/python-3.6
+#apt-get update
+#apt-get install -y build-essential libpq-dev libssl-dev openssl libffi-dev zlib1g-dev
+#apt-get install -y  python3-pip python3-dev
+#apt-get install -y python3.6
+
+##python3.5
+apt-get update
+apt-get install -y software-properties-common wget
+add-apt-repository --yes ppa:fkrull/deadsnakes
+apt-get update
+apt-get install --yes python3.5 python3.5-dev python3-pip
+#wget -q -O - https://bootstrap.pypa.io/get-pip.py | sudo python3.5
+
+#apt-get install -yqq  
+#apt-get install -yqq python3 python3-pip python3-dev build-essential python3-setuptools wget
+
+apt-get install -yqq  build-essential \
+python3-tk python3-numpy python3-scipy \
+libatlas-dev libatlas3-base \
+git gfortran libatlas-base-dev libatlas3-base libhdf5-dev \
+libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev \
+libboost-program-options-dev zlib1g-dev libboost-python-dev
+#libatlas3gf-base is replaced by libatlas3-base
+
+#pip3 install -UI pip cython numpy
+pip3 install -UI cython numpy
+#apt-get -y install cython3 --upgrade
+#apt-get -y install python3-networkx
+
+#pip3 install -UI nipype==0.12.1
+#apt-get -y install python3-skimage=0.12.3
+
+pip3 install -UI -r scripts/requirements.txt
+
+# EXPOSE 8888
+# VOLUME ["/notebook", "/scripts"]
+cd /scripts
+
+JUPYTER_CONFIG_DIR="/jupyter"
+
+%environment
+export LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-7.5/lib64:$LD_LIBRARY_PATH
+export THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32,nvcc.flags=-D_FORCE_INLINES
+export JUPYTER_CONFIG_DIR="/jupyter"
+%runscript
+#cd /scripts
+#exec /bin/bash jupyter notebook --ip=localhost "$@"
+echo "Hello!"
+exec echo "This is the singularity image for resnetNN for MRI"
+#python3.5 /test_scripts/test_theano.py
+#%startscript
+#cd /scripts
+#exec /bin/bash jupyter notebook --ip=localhost "$@"

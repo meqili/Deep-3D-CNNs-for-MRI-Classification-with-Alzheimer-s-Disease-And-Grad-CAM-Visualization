@@ -2,7 +2,7 @@
 
 This implemented paper is based on the work [Residual and Plain Convolutional Neural Networks for 3D Brain MRI Classification](https://arxiv.org/abs/1701.06643) and its implementation in this [repo](https://github.com/neuro-ml/resnet_cnn_mri_adni). Please cite properly if you are using code in this repo.
 
-## Singularity or requirment
+## Singularity or Requirment
 
 This repo has the receipts for buiding singularity containers, or you can setup the environment by yourself based on the receipts. Please check the folder [singularity_receipt](https://github.com/liqi814/Deep-3D-CNNs-for-MRI-Classification-with-Alzheimer-s-Disease-And-Grad-CAM-Visualization/tree/master/singularity_receipt).
 ```bash
@@ -10,9 +10,9 @@ This repo has the receipts for buiding singularity containers, or you can setup 
 sudo singularity build resnet_cnn_mri.def classify.img
 sudo singularity build cam_vis.img cam_vis.def
 ```
-## 1. MRI classification
+## 1. MRI Classification
 
-### 1.1 Data preparation (folder [data](https://github.com/liqi814/Deep-3D-CNNs-for-MRI-Classification-with-Alzheimer-s-Disease-And-Grad-CAM-Visualization/tree/master/data))
+### 1.1 Data Preparation (folder [data](https://github.com/liqi814/Deep-3D-CNNs-for-MRI-Classification-with-Alzheimer-s-Disease-And-Grad-CAM-Visualization/tree/master/data))
 
 | File Name | Description |
 | ------------- | ------------- |
@@ -37,7 +37,7 @@ nohup singularity exec --nv classify.img python3.5 scripts/res_3d_pred.py >resne
 Please check the folders [results_vgg](https://github.com/liqi814/Deep-3D-CNNs-for-MRI-Classification-with-Alzheimer-s-Disease-And-Grad-CAM-Visualization/tree/master/results_vgg) and [results_resnet](https://github.com/liqi814/Deep-3D-CNNs-for-MRI-Classification-with-Alzheimer-s-Disease-And-Grad-CAM-Visualization/tree/master/results_resnet) for more details.
 
 
-## 2. Visualization
+## 2. Grad-CAM Visualization
 
 ### 1.1 Grad-CAM
 After the classification, the models have learned the weights from images. Choose one image in which you would love to view the discriminative regions. In this example, I used *S117504-reg.nii.gz*. And also, you can change to the layer that you want to visualize.

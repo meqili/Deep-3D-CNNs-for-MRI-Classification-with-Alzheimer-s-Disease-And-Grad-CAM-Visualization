@@ -7,7 +7,7 @@ And also the pre-processing codes for 3D MRI data are also provided stp by step 
 This repo has the receipts for buiding singularity containers, or you can setup the environment by yourself based on the receipts. Please check the folder [singularity_receipt](https://github.com/liqi814/Deep-3D-CNNs-for-MRI-Classification-with-Alzheimer-s-Disease-And-Grad-CAM-Visualization/tree/master/singularity_receipt).
 
 ## Citation
-If you are using this repository cite this article
+If you are using this repository, please cite this article
 Li Q, Yang MQ. 2021. Comparison of machine learning approaches for enhancing Alzheimer’s disease classification. PeerJ 9:e10549 https://doi.org/10.7717/peerj.10549
 
 ## Singularity or Requirment
